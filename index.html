@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Hello World</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="images/hello-icon-152.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="white"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Hello World">
+  <meta name="msapplication-TileImage" content="images/hello-icon-144.png">
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+  <style media="screen">
+  *
+  {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+  body
+  {
+    width: 100%;
+    height: 100vh;
+    background-color: #000000;
+    background-image: linear-gradient(to bottom, #68EACC 30%, #04619f);
+    overflow: hidden;
+  }
+  .contain
+  {
+     max-width: 500px;
+     background: white;
+     padding: 25px;
+     border-radius: 5px;
+     margin: 120px auto;
+  }
+  .contain header
+  {
+    font-size: 30px;
+    font-weight: 600;
+  }
+  .contain .in
+  {
+    display: flex;
+    width:100%;
+    height: 45px;
+    margin: 20px 0;
+  }
+  .contain input
+  {
+    width: 85%;
+    height: 100%;
+    border: 1px solid #ccc;
+    font-size: 17px;
+    border-radius: 3px;
+    padding-left: 15px;
+  }
+  .in button
+  {
+    width: 60px;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: #8e49e8;
+    color: white;
+    font-size:35px;
+    cursor: pointer;
+    pointer-events: none;
+    opacity: 0.6;
+    margin-left: 5px;
+  }
+  .in button span
+  {
+  }
+  .in button.active
+  {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .contain .todolist
+  {
+    max-height: 280px;
+    overflow-y: auto;
+  }
+  ul
+  {
+    list-style: none;
+  }
+  ul li
+  {
+     height: 45px;
+     line-height: 45px;
+     position: relative;
+     background: #f2f2f2;
+     border-radius: 3px;
+     margin-bottom: 8px;
+     padding: 0 15px;
+     cursor: default;
+     overflow: hidden;
+  }
+  ul li span
+  {
+    position: absolute;
+    right: -45px;
+    font-size: 30px;
+    color: white;
+    width:45px;
+    text-align: center;
+    transition:all 0.3s ease;
+    background: #e74c3c;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+  }
+  ul li:hover span
+  {
+     right:0;
+  }
+  footer
+  {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 100%;
+    align-items: center;
+  }
+  footer button
+  {
+    border: none;
+    outline: none;
+    background: #8e49e8;
+    cursor: pointer;
+    border-radius: 3px;
+    color: white;
+    font-size: 15px;
+    padding: 10px;
+  }
+  </style>
+</head>
+<body>
+  <div class="contain">
+    <header>Todo List App</header>
+    <div class="in">
+      <input type="text" placeholder="Add your plan here" id="inbox">
+      <button type="button" name="button" id="addbtn"><span>+</span></button>
+    </div>
+    <ul class="todolist">
+    </ul>
+    <footer id="foot">
+        <p>You've <span id="num">0</span> pending plans</p>
+        <button type="button" name="button" id="clrbtn">Clear all</button>
+    </footer>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
