@@ -13,6 +13,9 @@
   <meta name="apple-mobile-web-app-title" content="Hello World">
   <meta name="msapplication-TileImage" content="images/hello-icon-144.png">
   <meta name="msapplication-TileColor" content="#FFFFFF">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style media="screen">
   *
   {
@@ -58,7 +61,7 @@
     border-radius: 3px;
     padding-left: 15px;
   }
-  .in button
+  #addbtn
   {
     width: 60px;
     height: 100%;
@@ -72,10 +75,8 @@
     opacity: 0.6;
     margin-left: 5px;
   }
-  .in button span
-  {
-  }
-  .in button.active
+
+  #addbtn.active
   {
     opacity: 1;
     pointer-events: auto;
@@ -101,8 +102,10 @@
      cursor: default;
      overflow: hidden;
   }
-  ul li span
+
+  ul li .span,.spans
   {
+    top:0;
     position: absolute;
     right: -45px;
     font-size: 30px;
@@ -111,12 +114,20 @@
     text-align: center;
     transition:all 0.3s ease;
     background: #e74c3c;
-    border-radius: 0 4px 4px 0;
+    border-radius: 0 0 0 0;
     cursor: pointer;
   }
-  ul li:hover span
+  ul li:hover .span
   {
-     right:0;
+     right:50px;
+  }
+  ul li:hover .spans
+  {
+     right:0px;
+  }
+  ul li:hover{
+     color:#f2f2f2;
+     z-index:10;
   }
   footer
   {
@@ -137,15 +148,45 @@
     font-size: 15px;
     padding: 10px;
   }
+  .editable {
+  background: #deedd6;
+  height: auto;
+  border-radius: 8px;
+  padding:50px;
+  font-size:16px;
+  color:black;
+  }
+
   </style>
 </head>
 <body>
+  <!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" style="outline:none" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h5><b>Edit below ..</b></h5>
+    </div>
+    <div class="modal-body" style="outline:none" contentEditable="true" class="editable" id="exampleModalLongTitle">
+      <p>...</p> 
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" onclick="save()">Save</button>
+      <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
+    </div>
+  </div>
+</div>
+</div>
   <div class="contain">
     <header>Todo List App</header>
     <div class="in">
-      <input type="text" placeholder="Add your plan here" id="inbox">
+      <input type="text" placeholder="Add your plan's title here" id="inbox">
       <button type="button" name="button" id="addbtn"><span>+</span></button>
     </div>
+
     <ul class="todolist">
     </ul>
     <footer id="foot">
